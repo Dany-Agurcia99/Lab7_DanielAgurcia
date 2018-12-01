@@ -53,6 +53,10 @@ public class hilo_administrador extends Thread {
             + "9)Gringas\n"
             + "10)Bebidas\n"
             + "11)Excepcion a en Rocas";
+    double tiempoprep1 = 0;
+    double tiempoprep2 = 0;
+    double tiempoprep3 = 0;
+    double tiempoprep4 = 0;
 
     @Override
 
@@ -83,7 +87,6 @@ public class hilo_administrador extends Thread {
                 }
                 if (mesa_1.getLista_sentados().size() == 4 && mesa_1.getEstado().getText().equals("Esperando")) {
                     mesa_1.getEstado().setText("Ordenando");
-                    int tiempoprep = 0;
                     int tiempocomidas = 0;
                     for (int i = 1; i <= mesa_1.getLista_sentados().size(); i++) {
                         String tiempo = JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
@@ -124,42 +127,332 @@ public class hilo_administrador extends Thread {
                                 break;
                         }
                     }
-                    
+                    tiempoprep1 = Math.ceil(tiempocomidas / mesa_1.getLista_sentados().size()) * 0.20;
+                    mesa_1.getMesa().setValue(0);
                 }
+
                 if (mesa_2.getLista_sentados().size() == 4 && mesa_2.getEstado().getText().equals("Esperando")) {
                     mesa_2.getEstado().setText("Ordenando");
+                    int tiempocomidas = 0;
                     for (int i = 1; i <= mesa_2.getLista_sentados().size(); i++) {
                         JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
+                        String tiempo = JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
+                        int temp = Integer.parseInt(tiempo);
+                        switch (temp) {
+                            case 1:
+                                tiempocomidas += 20;
+                                break;
+                            case 2:
+                                tiempocomidas += 15;
+                                break;
+                            case 3:
+                                tiempocomidas += 12;
+                                break;
+                            case 4:
+                                tiempocomidas += 25;
+                                break;
+                            case 5:
+                                tiempocomidas += 20;
+                                break;
+                            case 6:
+                                tiempocomidas += 20;
+                                break;
+                            case 7:
+                                tiempocomidas += 15;
+                                break;
+                            case 8:
+                                tiempocomidas += 20;
+                                break;
+                            case 9:
+                                tiempocomidas += 17;
+                                break;
+                            case 10:
+                                tiempocomidas += 0;
+                                break;
+                            case 11:
+                                tiempocomidas += 0;
+                                break;
+                        }
+
                     }
+                    tiempoprep2 = Math.ceil(tiempocomidas / mesa_2.getLista_sentados().size()) * 0.20;
+                    mesa_2.getMesa().setValue(0);
                 }
                 if (mesa_3.getLista_sentados().size() == 4 && mesa_3.getEstado().getText().equals("Esperando")) {
                     mesa_3.getEstado().setText("Ordenando");
+                    int tiempocomidas = 0;
                     for (int i = 1; i <= mesa_3.getLista_sentados().size(); i++) {
                         JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
+                        String tiempo = JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
+                        int temp = Integer.parseInt(tiempo);
+                        switch (temp) {
+                            case 1:
+                                tiempocomidas += 20;
+                                break;
+                            case 2:
+                                tiempocomidas += 15;
+                                break;
+                            case 3:
+                                tiempocomidas += 12;
+                                break;
+                            case 4:
+                                tiempocomidas += 25;
+                                break;
+                            case 5:
+                                tiempocomidas += 20;
+                                break;
+                            case 6:
+                                tiempocomidas += 20;
+                                break;
+                            case 7:
+                                tiempocomidas += 15;
+                                break;
+                            case 8:
+                                tiempocomidas += 20;
+                                break;
+                            case 9:
+                                tiempocomidas += 17;
+                                break;
+                            case 10:
+                                tiempocomidas += 0;
+                                break;
+                            case 11:
+                                tiempocomidas += 0;
+                                break;
+                        }
+
                     }
+                    tiempoprep3 = Math.ceil(tiempocomidas / mesa_3.getLista_sentados().size()) * 0.20;
+                    mesa_3.getMesa().setValue(0);
                 }
                 if (mesa_4.getLista_sentados().size() == 4 && mesa_4.getEstado().getText().equals("Esperando")) {
                     mesa_4.getEstado().setText("Ordenando");
+                    int tiempocomidas = 0;
                     for (int i = 1; i <= mesa_4.getLista_sentados().size(); i++) {
                         JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
+                        String tiempo = JOptionPane.showInputDialog(null, "Que quiere ordenar Cliente " + i + "\n" + menu);
+                        int temp = Integer.parseInt(tiempo);
+                        switch (temp) {
+                            case 1:
+                                tiempocomidas += 20;
+                                break;
+                            case 2:
+                                tiempocomidas += 15;
+                                break;
+                            case 3:
+                                tiempocomidas += 12;
+                                break;
+                            case 4:
+                                tiempocomidas += 25;
+                                break;
+                            case 5:
+                                tiempocomidas += 20;
+                                break;
+                            case 6:
+                                tiempocomidas += 20;
+                                break;
+                            case 7:
+                                tiempocomidas += 15;
+                                break;
+                            case 8:
+                                tiempocomidas += 20;
+                                break;
+                            case 9:
+                                tiempocomidas += 17;
+                                break;
+                            case 10:
+                                tiempocomidas += 0;
+                                break;
+                            case 11:
+                                tiempocomidas += 0;
+                                break;
+                        }
+
                     }
+                    tiempoprep4 = Math.ceil(tiempocomidas / mesa_4.getLista_sentados().size()) * 0.20;
+                    mesa_4.getMesa().setValue(0);
                 }
                 if (mesa_1.getEstado().getText().equals("Ordenando")) {
                     mesa_1.getEstado().setText("Preparando alimentos");
-                    mesa_1.getMesa().setValue(0);
+
                 }
                 if (mesa_2.getEstado().getText().equals("Ordenando")) {
                     mesa_2.getEstado().setText("Preparando alimentos");
-                    mesa_2.getMesa().setValue(0);
+
                 }
                 if (mesa_3.getEstado().getText().equals("Ordenando")) {
                     mesa_3.getEstado().setText("Preparando alimentos");
-                    mesa_3.getMesa().setValue(0);
+
                 }
                 if (mesa_4.getEstado().getText().equals("Ordenando")) {
                     mesa_4.getEstado().setText("Preparando alimentos");
-                    mesa_4.getMesa().setValue(0);
+
                 }
+                if (mesa_1.getEstado().getText().equals("Preparando Alimentos")) {
+                    mesa_1.getMesa().setValue(mesa_1.getMesa().getValue() + 1);
+                    if (mesa_1.getMesa().getValue() == tiempoprep1) {
+                        mesa_1.getEstado().setText("Comiendo");
+                        mesa_1.getMesa().setValue(0);
+                    }
+                }
+                if (mesa_2.getEstado().getText().equals("Preparando Alimentos")) {
+                    mesa_2.getMesa().setValue(mesa_2.getMesa().getValue() + 1);
+                    if (mesa_2.getMesa().getValue() == tiempoprep2) {
+                        mesa_2.getEstado().setText("Comiendo");
+                        mesa_2.getMesa().setValue(0);
+                    }
+                }
+                if (mesa_3.getEstado().getText().equals("Preparando Alimentos")) {
+                    mesa_3.getMesa().setValue(mesa_3.getMesa().getValue() + 1);
+                    if (mesa_3.getMesa().getValue() == tiempoprep3) {
+                        mesa_3.getEstado().setText("Comiendo");
+                        mesa_3.getMesa().setValue(0);
+                    }
+                }
+                if (mesa_4.getEstado().getText().equals("Preparando Alimentos")) {
+                    mesa_4.getMesa().setValue(mesa_4.getMesa().getValue() + 1);
+                    if (mesa_4.getMesa().getValue() == tiempoprep4) {
+                        mesa_4.getEstado().setText("Comiendo");
+                        mesa_4.getMesa().setValue(0);
+                    }
+                }
+                if (mesa_1.getEstado().getText().equals("Comiendo")) {
+                    mesa_1.getMesa().setValue(mesa_1.getMesa().getValue() + 1);
+                    int personas = mesa_1.getLista_sentados().size();
+                    switch (personas) {
+                        case 1:
+                            if (mesa_1.getMesa().getValue() == 30) {
+                                mesa_1.getEstado().setText("Esperando");
+                                mesa_1.getMesa().setValue(0);
+                                mesa_1.getLista_sentados().clear();
+                            }
+                            break;
+                        case 2:
+                            if (mesa_1.getMesa().getValue() == 45) {
+                                mesa_1.getEstado().setText("Esperando");
+                                mesa_1.getMesa().setValue(0);
+                                mesa_1.getLista_sentados().clear();
+                            }
+                            break;
+                        case 3:
+                            if (mesa_1.getMesa().getValue() == 60) {
+                                mesa_1.getEstado().setText("Esperando");
+                                mesa_1.getMesa().setValue(0);
+                                mesa_1.getLista_sentados().clear();
+                            }
+                            break;
+                        case 4:
+                            if (mesa_1.getMesa().getValue() == 90) {
+                                mesa_1.getEstado().setText("Esperando");
+                                mesa_1.getMesa().setValue(0);
+                                mesa_1.getLista_sentados().clear();
+                            }
+                            break;
+                    }
+                }
+                if (mesa_2.getEstado().getText().equals("Comiendo")) {
+                    mesa_2.getMesa().setValue(mesa_2.getMesa().getValue() + 1);
+                    int personas = mesa_2.getLista_sentados().size();
+                    switch (personas) {
+                        case 1:
+                            if (mesa_2.getMesa().getValue() == 30) {
+                                mesa_2.getEstado().setText("Esperando");
+                                mesa_2.getMesa().setValue(0);
+                                mesa_2.getLista_sentados().clear();
+                            }
+                            break;
+                        case 2:
+                            if (mesa_2.getMesa().getValue() == 45) {
+                                mesa_2.getEstado().setText("Esperando");
+                                mesa_2.getMesa().setValue(0);
+                                mesa_2.getLista_sentados().clear();
+                            }
+                            break;
+                        case 3:
+                            if (mesa_2.getMesa().getValue() == 60) {
+                                mesa_2.getEstado().setText("Esperando");
+                                mesa_2.getMesa().setValue(0);
+                                mesa_2.getLista_sentados().clear();
+                            }
+                            break;
+                        case 4:
+                            if (mesa_2.getMesa().getValue() == 90) {
+                                mesa_2.getEstado().setText("Esperando");
+                                mesa_2.getMesa().setValue(0);
+                                mesa_2.getLista_sentados().clear();
+                            }
+                            break;
+                    }
+                }
+                if (mesa_3.getEstado().getText().equals("Comiendo")) {
+                    mesa_3.getMesa().setValue(mesa_3.getMesa().getValue() + 1);
+                    int personas = mesa_3.getLista_sentados().size();
+                    switch (personas) {
+                        case 1:
+                            if (mesa_3.getMesa().getValue() == 30) {
+                                mesa_3.getEstado().setText("Esperando");
+                                mesa_3.getMesa().setValue(0);
+                                mesa_3.getLista_sentados().clear();
+                            }
+                            break;
+                        case 2:
+                            if (mesa_3.getMesa().getValue() == 45) {
+                                mesa_3.getEstado().setText("Esperando");
+                                mesa_3.getMesa().setValue(0);
+                                mesa_3.getLista_sentados().clear();
+                            }
+                            break;
+                        case 3:
+                            if (mesa_3.getMesa().getValue() == 60) {
+                                mesa_3.getEstado().setText("Esperando");
+                                mesa_3.getMesa().setValue(0);
+                                mesa_3.getLista_sentados().clear();
+                            }
+                            break;
+                        case 4:
+                            if (mesa_3.getMesa().getValue() == 90) {
+                                mesa_3.getEstado().setText("Esperando");
+                                mesa_3.getMesa().setValue(0);
+                                mesa_3.getLista_sentados().clear();
+                            }
+                            break;
+                    }
+                }
+                if (mesa_4.getEstado().getText().equals("Comiendo")) {
+                    mesa_4.getMesa().setValue(mesa_4.getMesa().getValue() + 1);
+                    int personas = mesa_4.getLista_sentados().size();
+                    switch (personas) {
+                        case 1:
+                            if (mesa_4.getMesa().getValue() == 30) {
+                                mesa_4.getEstado().setText("Esperando");
+                                mesa_4.getMesa().setValue(0);
+                                mesa_4.getLista_sentados().clear();
+                            }
+                            break;
+                        case 2:
+                            if (mesa_4.getMesa().getValue() == 45) {
+                                mesa_4.getEstado().setText("Esperando");
+                                mesa_4.getMesa().setValue(0);
+                                mesa_4.getLista_sentados().clear();
+                            }
+                            break;
+                        case 3:
+                            if (mesa_4.getMesa().getValue() == 60) {
+                                mesa_4.getEstado().setText("Esperando");
+                                mesa_4.getMesa().setValue(0);
+                                mesa_4.getLista_sentados().clear();
+                            }
+                            break;
+                        case 4:
+                            if (mesa_4.getMesa().getValue() == 90) {
+                                mesa_4.getEstado().setText("Esperando");
+                                mesa_4.getMesa().setValue(0);
+                                mesa_4.getLista_sentados().clear();
+                            }
+                            break;
+                    }
+                }
+
             }
             try {
                 Thread.sleep(1000);

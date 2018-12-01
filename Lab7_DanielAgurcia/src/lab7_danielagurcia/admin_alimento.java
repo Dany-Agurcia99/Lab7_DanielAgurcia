@@ -8,21 +8,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class admin_clientes {
+public class admin_alimento {
 
-    private ArrayList<Clientes> lista_clientes = new ArrayList();
-    private File archivo = null;
+    ArrayList<Alimento> lista_alimentos = new ArrayList();
+    File archivo;
 
-    public admin_clientes(String path) {
-        archivo = new File(path);
+    public ArrayList<Alimento> getLista_alimentos() {
+        return lista_alimentos;
     }
 
-    public ArrayList<Clientes> getlista_clientes() {
-        return lista_clientes;
-    }
-
-    public void setListaClientes(ArrayList<Clientes> lista_clientes) {
-        this.lista_clientes = lista_clientes;
+    public void setLista_alimentos(ArrayList<Alimento> lista_alimentos) {
+        this.lista_alimentos = lista_alimentos;
     }
 
     public File getArchivo() {
@@ -33,26 +29,24 @@ public class admin_clientes {
         this.archivo = archivo;
     }
 
-    @Override
-    public String toString() {
-        return "admin_clientes{" + "listaPersonas=" + lista_clientes + ", archivo=" + archivo + '}';
+    public admin_alimento(String path) {
+        archivo = new File(path);
     }
 
-    //metodos extra
-    public void setCliente(Clientes c) {
-        this.lista_clientes.add(c);
+    public void setAlimento(Alimento a) {
+        this.lista_alimentos.add(a);
     }
 
     public void cargarArchivo() {
-        lista_clientes = new ArrayList();
-        Clientes temp;
+        lista_alimentos = new ArrayList();
+        Alimento temp;
         try {
             if (archivo.exists()) {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Clientes) objeto.readObject()) != null) {
-                        lista_clientes.add(temp);
+                    while ((temp = (Alimento) objeto.readObject()) != null) {
+                        lista_alimentos.add(temp);
                     }
                 } catch (EOFException e) {
                 }
@@ -71,8 +65,8 @@ public class admin_clientes {
         try {
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
-            for (Clientes c : lista_clientes) {
-                bw.writeObject(c);
+            for (Alimento a : lista_alimentos) {
+                bw.writeObject(a);
             }
             bw.flush();
         } catch (Exception e) {
@@ -84,5 +78,4 @@ public class admin_clientes {
             }
         }
     }
-
 }

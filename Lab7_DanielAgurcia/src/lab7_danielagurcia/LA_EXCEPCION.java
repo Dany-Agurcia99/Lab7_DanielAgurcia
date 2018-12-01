@@ -316,8 +316,10 @@ public class LA_EXCEPCION extends javax.swing.JFrame {
         Mesa mesa_3 = new Mesa(pb_mesa3, jl_mesa3);
         Mesa mesa_4 = new Mesa(pb_mesa4, jl_mesa4);
         ac.cargarArchivo();
+        aa.cargarArchivo();
+        ArrayList<Alimento> lista_ali = aa.getLista_alimentos();
         ArrayList<Clientes> lista_clientes_recurrentes = ac.getlista_clientes();
-        hilo_administrador HA = new hilo_administrador(mesa_1, mesa_2, mesa_3, mesa_4, true, true, lista_clientes_recurrentes);
+        hilo_administrador HA = new hilo_administrador(mesa_1, mesa_2, mesa_3, mesa_4, true, true, lista_clientes_recurrentes, lista_ali);
         HA.start();
     }//GEN-LAST:event_jButton1MouseClicked
 

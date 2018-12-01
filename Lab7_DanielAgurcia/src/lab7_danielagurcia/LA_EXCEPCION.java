@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab7_danielagurcia;
 
 import java.util.ArrayList;
@@ -20,7 +15,6 @@ public class LA_EXCEPCION extends javax.swing.JFrame {
 
     public LA_EXCEPCION() {
         initComponents();
-
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -351,7 +345,7 @@ public class LA_EXCEPCION extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_crear_clienteMouseClicked
 
     private void jb_listarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_listarMouseClicked
-        DefaultListModel modelolista = (DefaultListModel) jl_listaClientes.getModel();
+        DefaultListModel modelolista = new DefaultListModel();
         ac.cargarArchivo();
         for (Clientes temp : ac.getlista_clientes()) {
             modelolista.addElement(temp);
@@ -363,10 +357,11 @@ public class LA_EXCEPCION extends javax.swing.JFrame {
         if (jl_listaClientes.getSelectedIndex() >= 0) {
             DefaultListModel modelolista = (DefaultListModel) jl_listaClientes.getModel();
             Clientes c = (Clientes) modelolista.getElementAt(jl_listaClientes.getSelectedIndex());
-            jl_listaClientes.setModel(modelolista);
-            ac.cargarArchivo();
             ac.getlista_clientes().remove(c);
+            modelolista.remove(jl_listaClientes.getSelectedIndex());
+            jl_listaClientes.setModel(modelolista);
             ac.escribirArchivo();
+            ac.cargarArchivo();
         }
     }//GEN-LAST:event_jb_eliminar_clienteMouseClicked
 
